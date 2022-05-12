@@ -86,7 +86,7 @@ public class LoginServlet extends ChatServlet {
 		String sessionId = request.getSession().getId();
 		ChatUser aUser = activeUsers.get(name);
 		if (aUser==null) {
-			aUser = new ChatUser(name, Calendar.getInstance().getTimeInMillis(), sessionId);
+			aUser = new ChatUser(name, Calendar.getInstance().getTimeInMillis(), sessionId, 0);
 			synchronized (activeUsers) {
 				activeUsers.put(aUser.getName(), aUser);
 			}

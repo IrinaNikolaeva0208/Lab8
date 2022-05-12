@@ -8,12 +8,14 @@ public class ChatUser {
 	private long lastInteractionTime;
 	// Идентификатор Java-сессии пользователя
 	private String sessionId;
+	private int messageAmount = 0;
 	
 	public ChatUser(String name,long lastInteractionTime,String sessionId, int messageAmount) {
 		super();
 		this.name = name;
 		this.lastInteractionTime = lastInteractionTime;
 		this.sessionId = sessionId;
+		this.messageAmount = messageAmount;
 	}
 	public String getName() {
 		return name;
@@ -32,6 +34,13 @@ public class ChatUser {
 	}
 	public void setSessionId(String sessionId) {
 		this.sessionId = sessionId;
+	}
+	public void setMessageAmount(int amount) {
+		this.messageAmount = amount;
+	}
+
+    public int getMessageAmount() {
+    	return this.messageAmount;
 	}
    
 }
