@@ -20,7 +20,7 @@ public class NewMessageServlet extends ChatServlet {
 			synchronized (messages) {
 				messages.add(new ChatMessage(message, author,
 				Calendar.getInstance().getTimeInMillis()));
-				
+				author.increaseMessageAmount();
 			}
 			response.sendRedirect("/lab_8/compose_message.html");
 		}

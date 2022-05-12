@@ -42,5 +42,8 @@ public class ChatUser {
     public int getMessageAmount() {
     	return this.messageAmount;
 	}
+    public void increaseMessageAmount() {
+    	this.messageAmount++;
+	}
    
 }

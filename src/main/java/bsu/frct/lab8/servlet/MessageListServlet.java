@@ -14,7 +14,8 @@ public class MessageListServlet extends ChatServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse
 		response) throws ServletException, IOException {
 		
-		
+		ChatUser author = activeUsers.get((String) request.getSession().getAttribute("name"));
+        int amount = author.getMessageAmount();
 		// ”становить кодировку HTTP-ответа UTF-8
 		response.setCharacterEncoding("utf8");
 		// ѕолучить доступ к потоку вывода HTTP-ответа
@@ -24,7 +25,7 @@ public class MessageListServlet extends ChatServlet {
 		pw.println("<body>");
 		// ¬ обратном пор€дке записать в поток HTML-разметку дл€ каждого сообщени€
 		for (ChatMessage message : messages){
-			pw.println("<div><strong>" + message.getAuthor().getName() + "</strong>: " + message.getMessage() + "</div>");
+			pw.println("<div><strong>" + message.getAuthor().getName() + "</strong>(" + amount + "): " + message.getMessage() + "</div>");
 		}
 		pw.println("</body></html>");
 	}
